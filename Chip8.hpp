@@ -3,7 +3,8 @@
 
 class Chip8
 {
-
+    std::default_random_engine randGen;
+    std::uniform_int_distribution<uint8_t> randByte;
 public:
     void LoadROM(char const* filename);
     std::array <uint8_t, 16> registers{};
@@ -17,5 +18,6 @@ public:
     std::array <uint8_t, 16> keypad{};
     std::array <uint32_t, 64 * 32> video{};
     uint16_t opcode;
+    
 };
 
