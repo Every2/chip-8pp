@@ -4,11 +4,9 @@
 #include <random>
 #include <cstring>
 
-
 const unsigned int START_ADRESS = 0x200;
 const unsigned int FONTSET_SIZE = 80;
 const unsigned int FONTSET_START_ADRESS = 0x50;
-
 
 uint8_t fontset[FONTSET_SIZE] = {
     0xF0, 0x90, 0x90, 0x90, 0xF0, 
@@ -300,6 +298,8 @@ void Chip8::OP_Fx07() {
 void Chip8::OP_Fx0A() {
 	uint8_t Vx = (opcode & 0x0F00u) >> 8u;
 
+    //Wait for a key press, store the value of the key in Vx. All execution stops until a key is pressed, then the value of that key is stored in Vx.
+
 	bool keyFound = false;
     for (unsigned int i = 0; i < 16; ++i) {
         if (keypad[i]) {
@@ -311,5 +311,59 @@ void Chip8::OP_Fx0A() {
 
     if (!keyFound) {
         pc -= 2;
+    }
+}
+
+void Chip8::OP_Fx15() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    delayTimer = registers[Vx];
+}
+
+void Chip8::OP_Fx18() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    soundTimer = registers[Vx];
+}
+
+void Chip8::OP_Fx1E() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    index += registers[Vx];
+}
+
+void Chip8::OP_Fx29() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t digit = registers[Vx];
+
+    index = FONTSET_START_ADRESS + (5 * digit);
+}
+
+void Chip8::OP_Fx33() {
+    uint8_t Vx = (opcode &  0x0F00u) >> 8u;
+    uint8_t value = registers[Vx];
+
+    memory[index + 2] = value % 10;
+    value /= 10;
+
+    memory[index + 1] = value % 10;
+    value /= 10;
+
+    memory[index] = value % 10;
+}
+
+void Chip8::OP_Fx55() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    for (uint8_t i = 0; i <= Vx; ++i) {
+        memory[index + i] = registers[i];
+    }
+}
+
+void Chip8::OP_Fx65() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    for (uint8_t i = 0; i <= Vx; ++i) {
+        registers[i] = memory[index + i];
     }
 }
