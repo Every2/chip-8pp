@@ -44,6 +44,11 @@ public:
     void OP_Fx33();
     void OP_Fx55();
     void OP_Fx65();
+    void Table0();
+    void Table8();
+    void TableE();
+    void TableF();
+    void OP_NULL();
     std::array <uint8_t, 16> registers{};
     std::array <uint8_t, 4096> memory{};    
     uint16_t index{};
@@ -56,5 +61,12 @@ public:
     std::array <uint32_t, 64 * 32> video{};
     uint16_t opcode;
 
+    typedef void (Chip8::*Chip8Func)();
+    std::array <Chip8Func, 0xF + 1> table{};
+    std::array <Chip8Func, 0xE + 1> table0{};
+	std::array <Chip8Func, 0xE + 1> table8{};
+    std::array <Chip8Func, 0xE + 1> tableE{};
+    std::array <Chip8Func, 0x65 + 1> tableF{};
+	
 };
 
