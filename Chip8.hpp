@@ -61,7 +61,7 @@ public:
     std::array <uint32_t, 64 * 32> video{};
     uint16_t opcode;
 
-    typedef void (Chip8::*Chip8Func)();
+    using Chip8Func = void (Chip8::*)();
     std::array <Chip8Func, 0xF + 1> table{};
     std::array <Chip8Func, 0xE + 1> table0{};
 	std::array <Chip8Func, 0xE + 1> table8{};
