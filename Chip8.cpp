@@ -1,4 +1,6 @@
 #include <Chip8.hpp>
+#include <string>
+#include <vector>
 #include <fstream>
 #include <chrono>
 #include <random>
@@ -27,23 +29,21 @@ uint8_t fontset[FONTSET_SIZE] = {
 	0xF0, 0x80, 0xF0, 0x80, 0x80  
 };
 
-void Chip8::LoadROM(char const* filename) 
+void Chip8::LoadROM(const std::string& filename) 
 {
     std::ifstream file(filename, std::ios::binary | std::ios::ate);
 
     if (file.is_open()) {
-        std::streampos  size = file.tellg();
-        char* buffer = new char[size];
+        std::streampos size = file.tellg();
+        std::vector<char> buffer(size);
 
         file.seekg(0, std::ios::beg);
-        file.read(buffer, size);
+        file.read(buffer.data(), size);
         file.close();
 
-        for (long i = 0; i < size; ++i) {
+        for (size_t i = 0; i < size; ++i) {
             memory[START_ADRESS + 1] = buffer[i];
         }
-
-        delete[] buffer;
     }
 }
 
@@ -53,7 +53,7 @@ Chip8::Chip8()
    
     pc =  START_ADRESS;
 
-    for (unsigned int i = 0; i < FONTSET_SIZE; ++i){
+    for (int i = 0; i < FONTSET_SIZE; ++i){
         memory[FONTSET_START_ADRESS + i]  = fontset[i];
     }
 
@@ -372,7 +372,7 @@ void Chip8::OP_Fx0A() {
     //Wait for a key press, store the value of the key in Vx. All execution stops until a key is pressed, then the value of that key is stored in Vx.
 
 	bool keyFound = false;
-    for (unsigned int i = 0; i < 16; ++i) {
+    for (int i = 0; i < 16; ++i) {
         if (keypad[i]) {
             registers[Vx] = i;
             keyFound = true;

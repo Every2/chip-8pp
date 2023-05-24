@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <string>
 #include <array>
 
 const unsigned int VIDEO_HEIGHT = 32;
@@ -9,7 +10,7 @@ class Chip8
     std::default_random_engine randGen;
     std::uniform_int_distribution<uint8_t> randByte;
 public:
-    void LoadROM(char const* filename);
+    void LoadROM(const std::string& filename);
     void OP_00E0();
     void OP_00EE();
     void OP_1nnn();
