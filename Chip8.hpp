@@ -50,6 +50,7 @@ public:
     void TableE();
     void TableF();
     void OP_NULL();
+    void Cycle();
     std::array <uint8_t, 16> registers{};
     std::array <uint8_t, 4096> memory{};    
     uint16_t index{};
