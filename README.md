@@ -12,9 +12,9 @@ make
 
 # Future Goals
 
-- [] Add Windows compatibility 
-- [] Add Sound
-- [] Port project to WebAssembly
+- [ ] Add Windows compatibility 
+- [ ] Add Sound
+- [ ] Port project to WebAssembly
 
 # References 
 https://austinmorlan.com/posts/chip8_emulator/
