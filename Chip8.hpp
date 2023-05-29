@@ -1,6 +1,7 @@
 #include <cstdint>
 #include <string>
 #include <array>
+#include <random>
 
 const unsigned int VIDEO_HEIGHT = 32;
 const unsigned int VIDEO_WIDTH = 64;
