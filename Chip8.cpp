@@ -29,8 +29,7 @@ uint8_t fontset[FONTSET_SIZE] = {
 	0xF0, 0x80, 0xF0, 0x80, 0x80  
 };
 
-void Chip8::LoadROM(const std::string& filename) 
-{
+void Chip8::LoadROM(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary | std::ios::ate);
 
     if (file.is_open()) {
@@ -50,19 +49,16 @@ void Chip8::LoadROM(const std::string& filename)
 Chip8::Chip8()
 	: randGen(std::chrono::system_clock::now().time_since_epoch().count())
 {
-	// Initialize PC
+	
 	pc = START_ADDRESS;
 
-	// Load fonts into memory
 	for (unsigned int i = 0; i < FONTSET_SIZE; ++i)
 	{
 		memory[FONTSET_START_ADDRESS + i] = fontset[i];
 	}
 
-	// Initialize RNG
 	randByte = std::uniform_int_distribution<uint8_t>(0, 255U);
 
-	// Set up function pointer table
 	table[0x0] = &Chip8::Table0;
 	table[0x1] = &Chip8::OP_1nnn;
 	table[0x2] = &Chip8::OP_2nnn;
@@ -233,8 +229,7 @@ void Chip8::OP_8xy1() {
 	registers[Vx] |= registers[Vy];
 }
 
-void Chip8::OP_8xy2()
-{
+void Chip8::OP_8xy2() {
     uint8_t Vx = (opcode & 0x0F00u) >> 8u;
     uint8_t Vy = (opcode & 0x00F0u) >> 4u;
 
