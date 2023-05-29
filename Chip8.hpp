@@ -8,10 +8,15 @@ const unsigned int VIDEO_WIDTH = 64;
 
 class Chip8
 {
-    std::default_random_engine randGen;
-    std::uniform_int_distribution<uint8_t> randByte;
 public:
+    Chip8();
     void LoadROM(const std::string& filename);
+    void Cycle();
+    std::array <uint8_t, 16> keypad{};
+    std::array <uint32_t, 64 * 32> video{};
+private:
+    std::uniform_int_distribution<uint8_t> randByte;
+    std::default_random_engine randGen;
     void OP_00E0();
     void OP_00EE();
     void OP_1nnn();
@@ -51,7 +56,6 @@ public:
     void TableE();
     void TableF();
     void OP_NULL();
-    void Cycle();
     std::array <uint8_t, 16> registers{};
     std::array <uint8_t, 4096> memory{};    
     uint16_t index{};
@@ -60,8 +64,6 @@ public:
     uint8_t sp{};
     uint8_t delayTimer{};
     uint8_t soundTimer{};
-    std::array <uint8_t, 16> keypad{};
-    std::array <uint32_t, 64 * 32> video{};
     uint16_t opcode;
 
     using Chip8Func = void (Chip8::*)();

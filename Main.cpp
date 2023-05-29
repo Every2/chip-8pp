@@ -1,8 +1,8 @@
+#include "Chip8.hpp"
+#include "Platform.hpp"
 #include <iostream>
 #include <chrono>
 #include <sstream>
-#include <Platform.hpp>
-#include <Chip8.hpp>
 
 int main(int argc, char const *argv[])
 {
