@@ -1,2 +1,8 @@
 .vscode
+x64
+.vs
+chip8.sln
+chip8.vcxproj
+chip8.vcxproj.filters
+chip8.vcxproj.user
 build

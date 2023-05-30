@@ -4,7 +4,6 @@
 #include <fstream>
 #include <chrono>
 #include <random>
-#include <cstring>
 
 const unsigned int START_ADDRESS = 0x200;
 const unsigned int FONTSET_SIZE = 80;
@@ -54,10 +53,10 @@ Chip8::Chip8()
 
 	for (unsigned int i = 0; i < FONTSET_SIZE; ++i)
 	{
-		memory[FONTSET_START_ADDRESS + i] = fontset[i];
+        memory[FONTSET_START_ADDRESS + i] = fontset[i];
 	}
 
-	randByte = std::uniform_int_distribution<uint8_t>(0, 255U);
+	randByte = std::uniform_int_distribution<uint16_t>(0, 255U);
 
 	table[0x0] = &Chip8::Table0;
 	table[0x1] = &Chip8::OP_1nnn;

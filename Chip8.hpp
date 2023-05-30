@@ -15,7 +15,7 @@ public:
     std::array <uint8_t, 16> keypad{};
     std::array <uint32_t, 64 * 32> video{};
 private:
-    std::uniform_int_distribution<uint8_t> randByte;
+    std::uniform_int_distribution<uint16_t> randByte;
     std::default_random_engine randGen;
     void OP_00E0();
     void OP_00EE();

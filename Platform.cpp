@@ -1,4 +1,5 @@
 #include "Platform.hpp"
+#define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 
 Platform::Platform(const std::string& title, int windowWidth, int windowHeight, int textureWidth, int textureHeight) {

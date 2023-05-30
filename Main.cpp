@@ -1,11 +1,11 @@
 #include "Chip8.hpp"
+#define SDL_MAIN_HANDLED
 #include "Platform.hpp"
 #include <iostream>
 #include <chrono>
 #include <sstream>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char* argv[]) {
     std::istringstream arg1(argv[1]);
     std::istringstream arg2(argv[2]);
     std::string arg3(argv[3]);
