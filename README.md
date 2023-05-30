@@ -10,11 +10,14 @@ To install SDL2:
 vcpkg install sdl2:x64-windows
 ```
 
-In Visual Studio, create a new project from existing code as a console app and build app.
+Open chip8-win.sln and build as release. So go to chip8-win\Release and execute:
+```Bash
+./chip-8win.exe 10 3 romfilename
+```
 
 # Future Goals
 
-- [ ] Add Windows compatibility 
+- [x] Add Windows compatibility 
 - [ ] Add Sound
 - [ ] Port project to WebAssembly
 
