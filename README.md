@@ -14,7 +14,7 @@ make
 
 # Future Goals
 
-- [ ] Add Windows compatibility 
+- [x] Add Windows compatibility 
 - [ ] Add Sound
 - [ ] Port project to WebAssembly
 
