@@ -2,6 +2,8 @@
 
 A Simple implementation of Chip-8 to learn about emulation in cpp.
 
+If you use windows check [dev-windows branch](https://github.com/Every2/chip-8pp/tree/dev-windows)
+
 To run this project:
 ```Bash
 mkdir build && cd build
