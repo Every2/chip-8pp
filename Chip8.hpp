@@ -128,7 +128,7 @@ private:
 	uint16_t opcode{};
  
 	std::default_random_engine randGen;
-	std::uniform_int_distribution<uint16_t> randByte;
+	std::uniform_int_distribution<uint8_t> randByte;
  
 	using Chip8Func = void (Chip8::*)();
 	std::array <Chip8Func, 0xF + 1> table{};
