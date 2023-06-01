@@ -2,9 +2,10 @@
 
 A Simple implementation of Chip-8 to learn about emulation in cpp.
 
-If you use windows check [dev-windows branch](https://github.com/Every2/chip-8pp/tree/dev-windows)
+If you wanna compile with Visual Studio [dev-windows branch](https://github.com/Every2/chip-8pp/tree/dev-windows)
 
-To run this project:
+
+To run this project in Linux:
 ```Bash
 mkdir build && cd build
 cmake ../
@@ -12,6 +13,21 @@ make
 ./chip8 10 3 romname
 ```
 
+To run in windows you will need:
+- [vcpkg](https://vcpkg.io/en/)
+- [MSYS2](https://code.visualstudio.com/docs/languages/cpp)
+
+Run:
+```bash
+vcpkg install sdl2:x64-windows
+```
+To use Makefile:
+```bash
+mkdir build && cd build
+cmake -G "MinGW Makefiles"
+make
+.\chip8 10 3 romname
+```
 # Future Goals
 
 - [x] Add Windows compatibility 

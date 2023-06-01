@@ -45,7 +45,7 @@ Chip8::Chip8()
 	}
  
  
-	randByte = std::uniform_int_distribution<uint8_t>(0, 255U);
+	randByte = std::uniform_int_distribution<uint16_t>(0, 255U);
  
  
 	table[0x0] = &Chip8::Table0;
