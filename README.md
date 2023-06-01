@@ -2,8 +2,6 @@
 
 A Simple implementation of Chip-8 to learn about emulation in cpp.
 
-If you wanna compile with Visual Studio [dev-windows branch](https://github.com/Every2/chip-8pp/tree/dev-windows)
-
 
 To run this project in Linux:
 ```Bash
