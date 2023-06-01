@@ -16,16 +16,24 @@ To run in windows you will need:
 - [MSYS2](https://code.visualstudio.com/docs/languages/cpp)
 
 Run:
-```bash
+```shell
 vcpkg install sdl2:x64-windows
 ```
-To use Makefile:
-```bash
-mkdir build && cd build
-cmake -G "MinGW Makefiles"
+To use Makefile in powershell:
+```shell
+(mkdir build) -and (cd build)
+cmake -G "MinGW Makefiles" ../
 make
 .\chip8 10 3 romname
 ```
+If you're in CMD:
+```shell
+mkdir build && cd build
+cmake -G "MinGW Makefiles" ../
+make
+.\chip8 10 3 romname
+```
+
 # Future Goals
 
 - [x] Add Windows compatibility 
