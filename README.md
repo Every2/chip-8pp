@@ -14,6 +14,7 @@ make
 To run in windows you will need:
 - [vcpkg](https://vcpkg.io/en/)
 - [MSYS2](https://code.visualstudio.com/docs/languages/cpp)
+- [Gnu Make](https://gnuwin32.sourceforge.net/packages/make.htm)
 
 Run:
 ```shell
