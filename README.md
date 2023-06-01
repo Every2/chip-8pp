@@ -2,19 +2,30 @@
 
 A Simple implementation of Chip-8 to learn about emulation in cpp.
 
-To run this project:
-You will need Visual Studio 2022 and vcpkg.
 
-To install SDL2:
+To run this project in Linux:
 ```Bash
+mkdir build && cd build
+cmake ../
+make
+./chip8 10 3 romname
+```
+
+To run in windows you will need:
+- [vcpkg](https://vcpkg.io/en/)
+- [MSYS2](https://code.visualstudio.com/docs/languages/cpp)
+
+Run:
+```bash
 vcpkg install sdl2:x64-windows
 ```
-
-Open chip8-win.sln and build as release. So go to chip8-win\Release and execute:
-```Bash
-./chip-8win.exe 10 3 romfilename
+To use Makefile:
+```bash
+mkdir build && cd build
+cmake -G "MinGW Makefiles"
+make
+.\chip8 10 3 romname
 ```
-
 # Future Goals
 
 - [x] Add Windows compatibility 

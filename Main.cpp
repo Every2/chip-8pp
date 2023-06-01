@@ -1,5 +1,5 @@
-#include "chip8.hpp"
-#include "platform.hpp"
+#include "Chip8.hpp"
+#include "Platform.hpp"
 #include <chrono>
 #include <iostream>
 
