@@ -1,3 +1,0 @@
-D:/chip-8pp/build/CMakeFiles/chip8.dir
-D:/chip-8pp/build/CMakeFiles/edit_cache.dir
-D:/chip-8pp/build/CMakeFiles/rebuild_cache.dir
